@@ -1,0 +1,128 @@
+body {
+    background-color: #FFC0CB; /* Fondo rosado */
+    background-image: url('Imagen/Estrella2.png'); /* Imagen de corazón */
+    background-repeat: repeat; /* Repetir la imagen */
+    background-size: 50px 50px; /* Tamaño del corazón */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.aniversario-texto {
+    font-size: 36px; /* Tamaño de fuente */
+    font-weight: bold;
+    color: #FF69B4;
+    margin-bottom: 40px;
+}
+
+.contenedor-carta {
+    perspective: 1200px;
+}
+
+.carta {
+    width: 700px;
+    height: 600px;
+    background-color: #FFB6C1;
+    border-radius: 10px;
+    position: relative;
+    transition: transform 1.2s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Mayor sombra */
+    border: 8px solid transparent;
+    background-image: url('corazones.png'), linear-gradient(#FFB6C1, #FFC0CB); /* Corazones en el borde */
+    background-size: 100px 100px, auto; /* Ajusta el tamaño del fondo */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-position: center; /* Centrar los corazones */
+}
+
+.carta .frontal, .carta .posterior {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.carta .frontal {
+    background-color: #FFB6C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px; /* Tamaño de fuente */
+    font-weight: bold;
+    color: white;
+}
+
+.carta .posterior {
+    background-color: white;
+    transform: rotateX(180deg);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 22px; /* Tamaño de fuente */
+    color: #FF69B4;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: justify;
+    overflow-y: auto;
+    line-height: 1.8;
+}
+
+.carta.abierta {
+    transform: rotateX(180deg);
+}
+
+.titulo-carta {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px; /* Tamaño de fuente */
+    color: #FF69B4;
+    margin-bottom: 20px;
+}
+
+.mensaje-carta {
+    font-style: italic;
+    font-size: 24px; /* Tamaño de fuente */
+    margin-bottom: 15px;
+}
+
+.botones {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 250px; /* Ancho */
+}
+
+.boton {
+    background-color: #FFB6C1;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.boton:hover {
+    background-color: #FF69B4;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .titulo-carta {
+        font-size: 30px; /* Ajustar tamaño de fuente para el título */
+    }
+    .mensaje-carta {
+        font-size: 18px; /* Ajustar tamaño de fuente para el mensaje */
+    }
+    .botones {
+        flex-direction: column; /* Botones en columna en pantallas pequeñas */
+        align-items: center;
+    }
+}
